@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status: Online</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --term-color: #00ff41;
+            --text-color: #c9d1d9;
+            --accent: #58a6ff;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+        }
+        .terminal-window {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            overflow: hidden;
+        }
+        .terminal-header {
+            background: #21262d;
+            padding: 10px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #30363d;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+        
+        .terminal-body {
+            padding: 20px;
+            min-height: 300px;
+        }
+        .command-line {
+            color: var(--term-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .output {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+        }
+        a:hover { background: rgba(88, 166, 255, 0.1); }
+        
+        /* Typing cursor animation */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--term-color);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <div class="terminal-body">
+            <div class="command-line">root@cybersec-portfolio:~$ ./init_sequence.sh</div>
+            
+            <div class="output">
+                > Initializing connection... [OK]<br>
+                > Loading profile... [OK]<br>
+                > Subject: <strong>Tech & Security Enthusiast</strong><br>
+                > Status: <strong>Building something secure.</strong>
+            </div>
+
+            <div class="command-line">root@cybersec-portfolio:~$ cat about_me.txt</div>
+            
+            <div class="output">
+                Hello. I am exploring the intersection of technology and cybersecurity. 
+                This site is currently a placeholder while I compile my research, projects, and findings.
+            </div>
+
+            <div class="command-line">root@cybersec-portfolio:~$ ls ./contact_links</div>
+            
+            <div class="output">
+                [ <a href="#">GitHub</a> ] 
+                [ <a href="#">LinkedIn</a> ] 
+                [ <a href="mailto:your@email.com">Email</a> ]
+            </div>
+
+            <div class="command-line">root@cybersec-portfolio:~$ <span class="cursor"></span></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
